@@ -39,7 +39,7 @@ body {
   color: #5a5a5a;
 }
 
-.bg-funcx {
+.bg-diamond {
   background-color: #072249 !important;
 }
 
@@ -72,27 +72,19 @@ body {
   height: 22rem;
 }
 
-.funcx-banner {
+.diamond-banner {
   color: white;
-  background-color: #072249;
+  background-color: #cc0033;
   /* set margin to 0 for funcXfest banner */
   margin-bottom: 0px;
   /*margin-bottom: 80px;*/
 }
-.funcx-banner-img {
+.diamond-banner-img {
   max-width: 70%;
 }
 
 
-.funcx-globus-banner {
-  color: white;
-  background-color: #85b1dd;
-}
-.funcx-globus-img {
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-}
+
 
 
 
