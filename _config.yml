@@ -13,11 +13,11 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: funcX
+title: Diamond
 description: > # this means to ignore newlines until "baseurl:"
-  funcX offers distributed and federated function as a service. 
+ Diamond: DL Training as a Service. 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://funcx.github.io" # the base hostname & protocol for your site
+url: "https://diamond-proj.github.io/" # the base hostname & protocol for your site
 collections: 
   people:
     output: false
