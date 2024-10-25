@@ -75,7 +75,6 @@ body {
 .diamond-banner {
   color: white;
   background-color: #cc0033;
-  /* set margin to 0 for funcXfest banner */
   margin-bottom: 0px;
   /*margin-bottom: 80px;*/
 }
