@@ -1,3 +1,3 @@
-# funcx-faas.github.io
+# diamond-projc.github.io
 
-Website source for funcX static website, with info about the project
+Website source for Diamond static website
