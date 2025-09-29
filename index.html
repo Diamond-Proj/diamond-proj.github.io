@@ -1,88 +1,591 @@
----
-layout: default
----
-      
-    <div class="jumbotron jumbotron-fluid diamond-banner">
-        <div class="container text-center">
-             <img src="images/logo/diamond-logo-transparent-dark.png" class="img-fluid Diamond-banner-img"> <br/><br/>
-             <h1>Diamond: Democratizing Model Training for Science</h1>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond | Democratizing AI Model Training for Science</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0d0d0d;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb1 {
+            width: 600px;
+            height: 600px;
+            background: #dc2626;
+            top: -300px;
+            right: -150px;
+        }
+
+        .orb2 {
+            width: 500px;
+            height: 500px;
+            background: #b91c1c;
+            bottom: -250px;
+            left: -150px;
+            animation-delay: -5s;
+        }
+
+        .orb3 {
+            width: 400px;
+            height: 400px;
+            background: #7f1d1d;
+            top: 50%;
+            left: 50%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -40px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            backdrop-filter: blur(20px);
+            background: rgba(13, 13, 13, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #dc2626, #7f1d1d);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .cta-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.5);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 8rem 5% 6rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 0 2px 30px rgba(220, 38, 38, 0.3);
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #ffffff, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #9ca3af;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .btn-primary {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(220, 38, 38, 0.6);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(220, 38, 38, 0.5);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .features {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            color: #ffffff;
+        }
+
+        .section-title .accent {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(220, 38, 38, 0.4);
+            box-shadow: 0 20px 60px rgba(220, 38, 38, 0.2);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #dc2626, #7f1d1d);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            color: #9ca3af;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .workflow {
+            padding: 6rem 5%;
+            background: rgba(255, 255, 255, 0.01);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .workflow-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .workflow-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, #dc2626, #7f1d1d);
+            z-index: 0;
+        }
+
+        .workflow-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.5);
+            border: 3px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .workflow-step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .workflow-step p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+
+        .stats {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #9ca3af;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .partners {
+            padding: 6rem 5% 4rem;
+            background: rgba(255, 255, 255, 0.01);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .partners-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .partners-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #ffffff;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .partner-logo {
+            width: 180px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .partner-logo:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(220, 38, 38, 0.3);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.15);
+        }
+
+        .partner-logo-icon {
+            font-size: 3rem;
+            margin-bottom: 0.75rem;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo:hover .partner-logo-icon {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .partner-name {
+            color: #d1d5db;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(13, 13, 13, 0.9);
+        }
+
+        footer p {
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow-steps {
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            .workflow-steps::before {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg">
+        <div class="gradient-orb orb1"></div>
+        <div class="gradient-orb orb2"></div>
+        <div class="gradient-orb orb3"></div>
     </div>
-    
 
-
-        <div class="container marketing" >
-
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-		<div class="col-lg-4">
-		</div>
-		<div class="col-lg-4">
-	            <img class="rounded-circle" src="images/logo/diamond-logo.png" alt="Deploy an endpoint" height="140">
-	            <h2>Access Dimaond</h2>
-	            <p>Used Diamond to train your first modelr.</p>
-	            <p><a class="btn btn-secondary" href="https://diamond.ncsa.illinois.edu/" role="button">Learn more »</a></p>
-	          </div>
-		<div class="col-lg-4">
-		</div>
-	<!--
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="images/jupyter_logo.png" alt="Test Diamond in a Jupyter notebook" width="140" height="140">
-            <h2>Try Diamond</h2>
-            <p>Use a Jupyter notebook to run Diamond tutorials in your browser. No installation required!</p>
-            <p><a class="btn btn-secondary" href="" role="button">Try now »</a></p>
-          </div>
-					
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="images/pypi.svg" alt="Download Diamond" width="140" height="140">
-            <h2>Install Diamond</h2>
-            <p>Install the Diamond SDK to train and share DL models.</p>
-            <p><a class="btn btn-secondary" href="docs" role="button">Quickstart »</a></p>
-          </div>
-	-->
-					
-          <!-- /.col-lg-4 -->
-        </div><!-- /.row -->
-
-
-        <!-- START THE FEATURETTES -->
-	
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-6">
-            <h2 class="featurette-heading">Outsource training of large models to the managed Diamond service.</h2>
-            <p class="lead">Diamond manages the long-running large model training job with intelligent partitioning and scheduling with optimized turnaround time and node hour consumption.</p>
-          </div>
-          <div class="col-md-6">
-            <img class="featurette-image img-fluid mx-auto" src="images/training.png">
-          </div>
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">💎</div>
+            <span>Diamond</span>
         </div>
-				
-        <hr class="featurette-divider">
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#workflow">How It Works</a></li>
+            <li><a href="#docs">Documentation</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <button class="cta-btn">Get Started</button>
+    </nav>
 
-	<div class="row featurette">
-	<div class="col-md-6">
-            <img class="featurette-image img-fluid mx-auto" src="images/systems.png">
-          </div>
-          <div class="col-md-6">
-            <h2 class="featurette-heading">Manage execution across  distributed resources.</h2> 
-            <p class="lead">Diamond offers container configuration service so that users can configure the software environment once and run across NSF computing centers and campus RCC. Diamond provides cross machine job and data management.</p>
-          </div>
+    <section class="hero">
+        <h1><span class="highlight">Democratizing</span> AI Model<br>Training for Science</h1>
+        <p>Outsource large-scale model training to Diamond's managed service with intelligent partitioning, optimized scheduling, and seamless cross-platform execution.</p>
+        <div class="hero-buttons">
+            <button class="btn-primary">Access Diamond</button>
+            <button class="btn-secondary">View Documentation</button>
         </div>
-		
-        <div class="row featurette">
-          <div class="col-md-6">
-            <h2 class="featurette-heading">Provenance Management.</h2>
-            <p class="lead">Diamond tracks the code and data versions when training large neural networks and integrates Garden and Hugging Face for model publishing and on-demand inference.</p>
-          </div>
-          <div class="col-md-6">
-            <img class="featurette-image img-fluid mx-auto" src="images/prov.png">
-          </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2 class="section-title">Powerful <span class="accent">Features</span></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Managed Training</h3>
+                <p>Diamond manages long-running large model training jobs with intelligent partitioning and scheduling, optimizing turnaround time and node hour consumption for maximum efficiency.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Distributed Execution</h3>
+                <p>Manage execution seamlessly across distributed resources. Configure your software environment once and run across NSF computing centers and campus RCC with unified job and data management.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Provenance Tracking</h3>
+                <p>Automatically track code and data versions when training large neural networks. Integrated with Garden and Hugging Face for streamlined model publishing and on-demand inference.</p>
+            </div>
         </div>
+    </section>
 
+    <section class="workflow" id="workflow">
+        <div class="workflow-container">
+            <h2 class="section-title">How It <span class="accent">Works</span></h2>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <h4>Configure</h4>
+                    <p>Set up your environment once</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <h4>Deploy</h4>
+                    <p>Submit your training job</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <h4>Monitor</h4>
+                    <p>Track progress in real-time</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <h4>Publish</h4>
+                    <p>Deploy your trained model</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- /END THE FEATURETTES -->
-
-      </div><!-- /.container -->
-
+    <footer>
+        <p>&copy; 2025 Diamond Project. </p>
+    </footer>
+</body>
+</html>
